@@ -1,6 +1,10 @@
 feature 'battle' do
-  scenario 'it has a working infrastructure' do
+
+  scenario 'two players enter their names and see them' do
     visit('/')
-    expect(page).to have_content 'Testing infrastructure working!'
+    fill_in "Player_1", :with => "George"
+    fill_in "Player_2", :with => "Charly"
+    click_button "Play"
+    expect(page).to have_text('George v Charly')
   end
 end
